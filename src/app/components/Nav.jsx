@@ -23,6 +23,12 @@ export default function Nav() {
         >
           Details
         </Link>
+        <Link href={"/settings"} 
+          className='border-b-[1px] border-gray-500
+          hover:border-gray-900'
+        >
+          Settings
+        </Link>
       </div>      
     </div>
   )
