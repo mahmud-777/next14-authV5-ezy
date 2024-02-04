@@ -52,7 +52,7 @@ export const {
     },
     session: async({session, token})=>{
       if(session?.user){
-        session.user.username= token.username
+        session.user.username= token.name
         session.user.role = token.role
       }
 
@@ -64,5 +64,10 @@ export const {
       return session;
 
     }
+  },
+  session: {
+    strategy: "jwt",
+    // maxAge: 60*60*24*30
+    maxAge: 60*60*24
   }
 });
