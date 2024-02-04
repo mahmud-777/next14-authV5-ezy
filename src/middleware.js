@@ -7,9 +7,11 @@ export default auth((req) => {
   const { nextUrl} = req; 
   
   if(nextUrl.pathname == "/login") return null;
+
   if(!isLoggedIn && nextUrl.pathname !== "/login"){
     return Response.redirect(new URL("/login", nextUrl))
-  }
+  } 
+  
   
   console.log("LoggedIn : ", isLoggedIn)
 

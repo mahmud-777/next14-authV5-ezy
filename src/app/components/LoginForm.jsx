@@ -20,7 +20,7 @@ const LoginForm = () => {
   }
 
   return (
-    <div className=" max-w-lg mx-auto mt-20 bg-gray-800 rounded-lg min-h-[350px] p-10">
+    <div className="max-w-sm mx-auto mt-20 bg-gray-800 rounded-lg min-h-[350px] p-10">
       {errorMessage && (
         <div className='bg-orange-600 p-1 justify-center items-center rounded-lg flex flex-row gap-3'>
           <span><TiInfoOutline /></span>

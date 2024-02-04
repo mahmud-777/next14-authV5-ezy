@@ -1,10 +1,13 @@
 import Link from 'next/link'
 import React from 'react'
+import { auth } from '../auth'
 
-export default function Nav() {
+export default async function Nav() {
+  const session = await auth();
   return (
     <div className='px-5 text-bold text-xl my-10'>
       <div className='flex flex-col gap-3'>
+        <p>User: {session?.user?.name}</p>
         <Link href={"/dashboard"} 
           className='border-b-[1px] border-gray-500
           hover:border-gray-900'

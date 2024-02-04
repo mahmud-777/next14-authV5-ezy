@@ -4,13 +4,15 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { TiInfoOutline } from "react-icons/ti";
+import { signupAction } from './action/signupAction';
 
 const SignupForm = () => {
   const { handleSubmit, register, reset, formState: { errors}} = useForm()
   const [errorMessage, setErrorMessage] = useState("")
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
+    await signupAction(data);
 
   }
 
@@ -56,14 +58,13 @@ const SignupForm = () => {
         <fieldset className='flex flex-col gap-2 w-full'>
           <button type="submit" className='px-5 py-1 bg-blue-800 text-white rounded-lg my-5'>Signup</button>
 
-        </fieldset>
-        <fieldset className='flex flex-col gap-2 w-full'>
-          <span>
-            Have an account? <Link href={"/login"}>Login</Link>
-          </span>
-        </fieldset>
-
+        </fieldset>        
       </form>
+      <div>
+        <span className='text-white'>
+          Already register? <Link href={"/login"} className=' cursor-pointer'>Login</Link>
+        </span>
+      </div>
       
     </div>
   )
