@@ -7,7 +7,7 @@ export default async function Nav() {
   return (
     <div className='px-5 text-bold text-xl my-10'>
       <div className='flex flex-col gap-3'>
-        <p>User: {session?.user?.name}</p>
+        <p>User: {session?.user?.username} Role: {session?.user?.role}</p>
         <Link href={"/dashboard"} 
           className='border-b-[1px] border-gray-500
           hover:border-gray-900'
