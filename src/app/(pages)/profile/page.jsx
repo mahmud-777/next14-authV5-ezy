@@ -1,4 +1,5 @@
 import { auth } from '@/app/auth';
+import { redirect } from 'next/navigation';
 import React from 'react'
 
 const ProfilePage = async () => {

@@ -18,11 +18,20 @@ export async function loginAction(formData){
     if(error instanceof AuthError){
       switch (error.type) {
         case "CredentialsSignin":
-          return { error: "Invalid Credentials"}          
-                
+          return { error: "Invalid Credentials" };
+        case "CallbackRouteError":
+          return { error: "Invalid Credentials" };
         default:
-          return { error: "Unknown error found"  }
+          return { error: "Something Went Wrong" };
       }
+      // switch (error.type) {
+      //   case "CredentialsSignin":
+      //     return { error: "Invalid Credentials"}          
+                
+      //   default:
+      //     return { error: "Unknown error found"  }
+      // }
+
     }
     throw error;
   }
