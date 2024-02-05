@@ -2,6 +2,23 @@ npm i mongoose react-hook-form react-icons bcryptjs
 
 // for secret key generate
 openssl rand -base64 32
+//GitHub Auth
+
+```
+goto github account => settings => Developer settings
+
+OAuth Apps  - click
+New OAuth App - click
+
+Register a new OAuth application
+Application name - authdemo-ezy
+Homepage URL     - http://localhost:3000
+Authorization callback URL - http://localhost:3000/api/auth/callback/github
+
+Register Application - click
+
+```
+
 // Google Auth
 
 ```
