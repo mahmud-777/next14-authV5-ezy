@@ -12,8 +12,9 @@ export default async function Home() {
     
     <div className="max-w-xl mx-auto mt-20">
       <div className="text-4xl text-gray-800">
-        {/* Welcome: {session.user.name} */}
-        Welcome: {session?.user?.username}
+        Welcome: {session.user.name}
+        {session.user.email && <p>{session.user.email}</p>}
+        {/* Welcome: {session?.user?.username} */}
       </div>
       <div className="text-2xl">
         Role: {session?.user?.role}
