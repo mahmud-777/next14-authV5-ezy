@@ -16,7 +16,7 @@ export default async function Home() {
         Welcome: {session?.user?.username}
       </div>
       <div className="text-2xl">
-        Role: {session.user.role}
+        Role: {session?.user?.role}
 
       </div>
 
