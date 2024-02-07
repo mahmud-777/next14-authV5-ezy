@@ -24,14 +24,7 @@ export async function loginAction(formData){
         default:
           return { error: "Something Went Wrong" };
       }
-      // switch (error.type) {
-      //   case "CredentialsSignin":
-      //     return { error: "Invalid Credentials"}          
-                
-      //   default:
-      //     return { error: "Unknown error found"  }
-      // }
-
+      
     }
     throw error;
   }

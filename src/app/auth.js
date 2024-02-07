@@ -23,66 +23,67 @@ export const {
     }),
     Credentials({
       name: "credentials",
-      credentials: {
-        username: { type: String, required: true},
-        password: { type: String, required: true}
-      },
+      // credentials: {
+      //   username: { type: String, required: true},
+      //   password: { type: String, required: true}
+      // },
 
       async authorize(credential) {
-        // await DBConnection();
-        // const user = await UserModel.findOne({ 
-        //   username: credential?.username,
-        //   // password: credential?.password
-        // });
-        // console.log(user)
+        await DBConnection();
+        const user = await UserModel.findOne({ 
+          username: credential?.username,
+          // password: credential?.password
+        });
+        console.log(user)
 
-        // if(user){
-        //   const isMatch = bcrypt.compare(credential?.password, user.password)
-        //   if(isMatch){
-        //     return user;
-        //   }return null;
-        // }else
+        if(user){
+          const isMatch = bcrypt.compare(credential?.password, user.password)
+          if(isMatch){
+            return user;
+          }return null;
+        }else
+        return null;
+
+        // const user = { 
+        //   id: 100, name: "ezycode", 
+        //   password: "admin", 
+        //   role: "admin",
+        // }
+        // if(credential?.username == user.name && credential?.password == user.password){
+        //   return user;
+        // }
+        // else
         // return null;
 
-        const user = { 
-          id: 100, name: "ezycode", 
-          password: "admin", 
-          role: "admin",
-        }
-        if(credential?.username == user.name && credential?.password == user.password){
-          return user;
-        }
-        else
-        return null;
       }
     }),
     
   ],
   secret: process.env.AUTH_SECRET,
   pages: {
-    // signIn: "/login"
+     signIn: "/login"
   },
   callbacks: {
     jwt: async({token, user})=> {
       if(user){        
        // return { ...token, ...user }
 
-        token.name= user.name,
-        //  token.name= user.username,
-         token.role = "admin"
+        // token.name= user.name,
+         token.name= user.username,
+         token.role =  "admin"
       }
       return token;
     },
     session: async({session, token})=>{
-      if(token){
-        session.user.name = token.name;
-        session.user.role= token.role;
+      // if(token){
+      //   session.user.name = token.username
+      //   session.user.role= token.role
 
-      }
-      // if(session?.user){
-      //   session.user.username= token.name
-      //   session.user.role = token.role
       // }
+      if(session?.user){
+        session.user.name= token.name
+        session.user.role = token.role
+      }
 
       // if (session.user) {
       //   session.user.name = token.name;

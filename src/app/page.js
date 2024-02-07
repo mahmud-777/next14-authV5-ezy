@@ -10,7 +10,8 @@ export default async function Home() {
   console.log("Session homepage",session)
   return (
     
-    <div className="max-w-xl mx-auto mt-20">
+    <div className=" min-h-screen max-w-5xl justify-center mx-auto mt-20">
+      
       <div className="text-4xl text-gray-800">
         Welcome: {session.user.name}
         {session.user.email && <p>{session.user.email}</p>}

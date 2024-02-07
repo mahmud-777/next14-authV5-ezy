@@ -69,6 +69,27 @@ import GoogleProvider from 'next-auth/providers/google
 
 // for email testing
 mailtrap.io
+sign in with google account
+=> Email Testing => Inboxes =>
+Integrations - Nodemailer (select)
+copy the code
+
+```
+var transport = nodemailer.createTransport({
+  host: "sandbox.smtp.mailtrap.io",
+  port: 2525,
+  auth: {
+    user: "39c182b85eeb81",
+    pass: "70deba1f89a7d6"
+  }
+});
+
+
+go to nodemailer.com
+npm install nodemailer
+
+```
+
 // for learning
 mmantratech.com
 // Shadcn-ui
